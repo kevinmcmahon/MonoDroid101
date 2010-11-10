@@ -30,7 +30,7 @@ namespace CABarCode
 
             button.Click += delegate { StartActivityForResult(BarcodeScanner.Scan(), 0); };
 
-            upcCode = (EditText) FindViewById(Resource.id.upc_code);
+            upcCode = FindViewById<EditText>(Resource.id.upc_code);
         }
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
