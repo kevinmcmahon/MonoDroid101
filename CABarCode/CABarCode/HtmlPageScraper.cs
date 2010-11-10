@@ -1,14 +1,22 @@
-﻿namespace CABarCode
+﻿using System;
+
+namespace CABarCode
 {
     public class HtmlPageScraper
     {
         public static string GetTextBetween(string pageContent, string start, string end)
         {
-            int startIndex = pageContent.IndexOf(start);
-            string ending = pageContent.Substring(startIndex, pageContent.Length);
+            if (string.IsNullOrEmpty(pageContent))
+                throw new ArgumentException("Page content empty.", "pageContent");
+            if (string.IsNullOrEmpty(start))
+                throw new ArgumentException("start null or empty.", "start");
+            if (string.IsNullOrEmpty(end))
+                throw new ArgumentException("end null or empty.", "end");
 
-            string title = ending.Substring(start.Length, ending.IndexOf(end));
-            return title;
+            int startIndex = pageContent.IndexOf(start);
+            string ending = pageContent.Substring(startIndex);
+            int strLength = ending.IndexOf(end) - start.Length;
+            return ending.Substring(start.Length, strLength);
         }
     }
 }

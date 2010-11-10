@@ -3,6 +3,7 @@ using Android;
 using Android.App;
 using Android.Content;
 using Android.OS;
+using Android.Util;
 using Android.Widget;
 
 namespace CABarCode
@@ -55,6 +56,8 @@ namespace CABarCode
             }
             catch (Exception e)
             {
+                Log.E("MainActivity.processUpc", string.Format("Exception thrown Processing UPC. Message : {0}", e.Message));
+
                 upcCode.SetText(e.Message.ToCharArray(), 0, e.Message.ToCharArray().Length);
             }
         }
