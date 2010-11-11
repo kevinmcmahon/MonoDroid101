@@ -1,5 +1,5 @@
 ﻿using System;
-using Android;
+
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -22,17 +22,29 @@ namespace CABarCode
         {
             base.OnCreate(bundle);
 
+            Log.I("MainActivity.OnCreate", "Started CABarCode!!!");
+
+            #region Step 1. Setup UI elements
+
             // Set our view from the "main" layout resource
             SetContentView(Resource.layout.main);
 
             // Get our button from the layout resource,
             // and attach an event to it
             var button = FindViewById<Button>(Resource.id.scan_button);
+            upcCode = FindViewById<EditText>(Resource.id.upc_code);
+
+            #endregion
+
+            #region Step 2. Wireup click event
 
             button.Click += delegate { StartActivityForResult(BarcodeScanner.Scan(), 0); };
 
-            upcCode = FindViewById<EditText>(Resource.id.upc_code);
+            #endregion
+
         }
+
+        #region Step 5. Ensure you get a response from barcode scanner
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
@@ -45,6 +57,8 @@ namespace CABarCode
             string upc = data.GetStringExtra("SCAN_RESULT");
             processUpc(upc);
         }
+
+        #endregion
 
         private void processUpc(String upc)
         {

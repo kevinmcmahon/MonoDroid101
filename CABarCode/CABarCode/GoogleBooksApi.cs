@@ -23,7 +23,6 @@ namespace CABarCode
 
 		public string GetTitle()
 		{
-			//This is BAD implementation, but the fastest for 101 class
 			return HtmlPageScraper.GetTextBetween(pageContent, "\"titleNoFormatting\":\"", "\",");
 		}
 	}

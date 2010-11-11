@@ -59,7 +59,6 @@
     <AndroidResource Include="Resources\values\strings.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-ldpi\icon.png" />
     <AndroidResource Include="Resources\drawable-mdpi\icon.png" />
   </ItemGroup>
@@ -67,19 +66,6 @@
     <AndroidResource Include="Resources\drawable\flag.png" />
   </ItemGroup>
   <ItemGroup />
-  <ItemGroup>
-    <AndroidResource Include="Resources\values-de\strings.xml" />
-    <AndroidResource Include="Resources\values-fr\strings.xml" />
-    <AndroidResource Include="Resources\values-ja\strings.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-de-rDE\flag.png" />
-    <AndroidResource Include="Resources\drawable-en-rCA\flag.png" />
-    <AndroidResource Include="Resources\drawable-en-rUS\flag.png" />
-    <AndroidResource Include="Resources\drawable-fr-rCA\flag.png" />
-    <AndroidResource Include="Resources\drawable-fr-rFR\flag.png" />
-    <AndroidResource Include="Resources\drawable-ja-rJP\flag.png" />
-  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
      Other similar extension points exist, see Microsoft.Common.targets.
