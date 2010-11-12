@@ -2,7 +2,6 @@
 using Android;
 using Android.App;
 using Android.OS;
-using Android.Runtime;
 using Android.Widget;
 
 namespace HelloSpinner
@@ -10,6 +9,10 @@ namespace HelloSpinner
     [Activity(Label = "Hello Spinner", MainLauncher = true)]
     public class HelloSpinner : Activity
     {
+        public HelloSpinner()
+        {
+        }
+
         public HelloSpinner(IntPtr handle)
             : base(handle)
         {
@@ -23,17 +26,18 @@ namespace HelloSpinner
 
             var spinner = (Spinner) FindViewById(Resource.id.spinner);
 
-            var adapter = ArrayAdapter.CreateFromResource(this, Resource.array.planets_array, R.Layout.SimpleSpinnerItem);
+            ArrayAdapter adapter = ArrayAdapter.CreateFromResource(this, Resource.array.planets_array,
+                                                                   R.Layout.SimpleSpinnerItem);
             adapter.SetDropDownViewResource(R.Layout.SimpleSpinnerDropdownItem);
 
             spinner.ItemSelected += spinner_ItemSelected;
-               
+
             spinner.Adapter = adapter;
         }
 
         private void spinner_ItemSelected(object sender, ItemEventArgs e)
         {
-                Toast.MakeText(e.View.Context, "The planet is " + ((TextView)e.View).Text, ToastLength.Long).Show();
+            Toast.MakeText(e.View.Context, "The planet is " + ((TextView) e.View).Text, ToastLength.Long).Show();
         }
     }
 }

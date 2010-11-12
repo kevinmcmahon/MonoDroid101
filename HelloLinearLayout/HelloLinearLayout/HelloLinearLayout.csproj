@@ -14,6 +14,8 @@
     <FileAlignment>512</FileAlignment>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
+    <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
+    <AndroidSupportedAbis>armeabi</AndroidSupportedAbis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -53,7 +55,9 @@
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\main.xml" />
+    <AndroidResource Include="Resources\layout\main.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\strings.xml" />

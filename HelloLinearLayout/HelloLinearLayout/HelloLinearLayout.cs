@@ -1,5 +1,4 @@
 ﻿using System;
-
 using Android.App;
 using Android.OS;
 
@@ -8,8 +7,11 @@ namespace HelloLinearLayout
     [Activity(Label = "Hello LinearLayout", MainLauncher = true)]
     public class HelloLinearLayout : Activity
     {
-        public HelloLinearLayout(IntPtr handle)
-            : base(handle)
+        public HelloLinearLayout()
+        {
+        }
+
+        public HelloLinearLayout(IntPtr handle) : base(handle)
         {
         }
 

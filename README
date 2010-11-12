@@ -1,3 +1,7 @@
 Example code and slides from the November 10, 2010 MonoDroid presentation given by Kevin McMahon to Chicago Alt.Net.
 
-The code has been adapted to work in MonoDroid Preview 6.  The layout and the localization examples are from the Android tutorial examples and the bar code example is from the Chicago Android workshops.
+The code has been adapted to work in MonoDroid Preview 7.
+
+The layout and the localization examples are from the Android tutorial examples and the bar code example is from the Chicago Android workshops.
+
+Some of the example code are based off the Android tutorials provided at http://developer.android.com/resources/tutorials/views/index.html.  Those works were created and shared by the Android Open Source Project and have used according to terms described in the Creative Commons 2.5 Attribution License.

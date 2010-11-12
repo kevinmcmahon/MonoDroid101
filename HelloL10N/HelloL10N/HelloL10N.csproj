@@ -14,6 +14,8 @@
     <FileAlignment>512</FileAlignment>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
+    <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
+    <AndroidSupportedAbis>armeabi</AndroidSupportedAbis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -65,7 +67,18 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\flag.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Resources\drawable-de-rDE\flag.png" />
+    <Content Include="Resources\drawable-en-rCA\flag.png" />
+    <Content Include="Resources\drawable-en-rUS\flag.png" />
+    <Content Include="Resources\drawable-fr-rCA\flag.png" />
+    <Content Include="Resources\drawable-fr-rFR\flag.png" />
+    <Content Include="Resources\drawable-hdpi\icon.png" />
+    <Content Include="Resources\drawable-ja-rJP\flag.png" />
+    <Content Include="Resources\values-de\strings.xml" />
+    <Content Include="Resources\values-fr\strings.xml" />
+    <Content Include="Resources\values-ja\strings.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
      Other similar extension points exist, see Microsoft.Common.targets.

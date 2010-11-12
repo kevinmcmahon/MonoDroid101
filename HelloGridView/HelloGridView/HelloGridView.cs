@@ -9,6 +9,9 @@ namespace HelloGridView
     [Activity(Label = "Hello GridView", MainLauncher = true)]
     public class HelloGridView : Activity
     {
+        public HelloGridView()
+        {}
+
         public HelloGridView(IntPtr handle)
             : base(handle)
         {

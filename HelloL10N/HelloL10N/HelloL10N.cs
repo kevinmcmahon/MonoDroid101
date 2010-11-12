@@ -1,6 +1,5 @@
 ﻿using System;
 using Android.App;
-using Android.Content;
 using Android.OS;
 using Android.Widget;
 
@@ -9,7 +8,11 @@ namespace HelloL10N
     [Activity(Label = "Hello, L10N", MainLauncher = true)]
     public class HelloL10N : Activity
     {
-        private static AlertDialog alert; // like show dialog
+        private static AlertDialog _alert; // like show dialog
+
+        public HelloL10N()
+        {
+        }
 
         public HelloL10N(IntPtr handle)
             : base(handle)
@@ -40,18 +43,17 @@ namespace HelloL10N
             builder.SetMessage(Resource.@string.dialog_text)
                 .SetCancelable(false)
                 .SetTitle(Resource.@string.dialog_title)
-                .SetPositiveButton("Done", (o, args) =>  ((Dialog)o).Dismiss()); 
+                .SetPositiveButton("Done", (o, args) => ((Dialog) o).Dismiss());
 
-            alert = builder.Create();
+            _alert = builder.Create();
 
             #endregion
 
             #region Step 4. Wire up button click event to show alert.
 
-            b.Click += (o, args) => alert.Show();
+            b.Click += (o, args) => _alert.Show();
 
             #endregion
-
         }
     }
 }

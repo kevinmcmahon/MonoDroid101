@@ -1,5 +1,4 @@
 ﻿using System;
-
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -8,72 +7,76 @@ using Android.Widget;
 
 namespace CABarCode
 {
-    [Activity(Label = "CA Bar Code", MainLauncher = true)]
-    public class MainActivity : Activity
-    {
-        private EditText upcCode;
+	[Activity(Label = "CA Bar Code", MainLauncher = true)]
+	public class MainActivity : Activity
+	{
+		private EditText _upcCode;
 
-        public MainActivity(IntPtr handle)
-            : base(handle)
-        {
-        }
+		public MainActivity()
+		{
+		}
 
-        protected override void OnCreate(Bundle bundle)
-        {
-            base.OnCreate(bundle);
+		public MainActivity(IntPtr handle)
+			: base(handle)
+		{
+		}
 
-            Log.I("MainActivity.OnCreate", "Started CABarCode!!!");
+		protected override void OnCreate(Bundle bundle)
+		{
+			base.OnCreate(bundle);
 
-            #region Step 1. Setup UI elements
+			Log.I("MainActivity.OnCreate", "Started CABarCode!!!");
 
-            // Set our view from the "main" layout resource
-            SetContentView(Resource.layout.main);
+			#region Step 1. Setup UI elements
 
-            // Get our button from the layout resource,
-            // and attach an event to it
-            var button = FindViewById<Button>(Resource.id.scan_button);
-            upcCode = FindViewById<EditText>(Resource.id.upc_code);
+			// Set our view from the "main" layout resource
+			SetContentView(Resource.layout.main);
 
-            #endregion
+			// Get our button from the layout resource,
+			// and attach an event to it
+			var button = FindViewById<Button>(Resource.id.scan_button);
+			_upcCode = FindViewById<EditText>(Resource.id.upc_code);
 
-            #region Step 2. Wireup click event
+			#endregion
 
-            button.Click += delegate { StartActivityForResult(BarcodeScanner.Scan(), 0); };
+			#region Step 2. Wireup click event
 
-            #endregion
+			button.Click += delegate { StartActivityForResult(BarcodeScanner.Scan(), 0); };
 
-        }
+			#endregion
+		}
 
-        #region Step 5. Ensure you get a response from barcode scanner
+		private void ProcessUpc(String upc)
+		{
+			try
+			{
+				var api = new GoogleBooksApi(upc);
+				char[] title = api.GetTitle().ToCharArray();
+				_upcCode.SetText(title, 0, title.Length);
+			}
+			catch (Exception e)
+			{
+				Log.E("MainActivity.processUpc",
+					  string.Format("Exception thrown Processing UPC. Message : {0}", e.Message));
 
-        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
-        {
-            if (requestCode == -1)
-            {
-                upcCode.Text = "scan has been canceled";
-                return;
-            }
+				_upcCode.SetText(e.Message.ToCharArray(), 0, e.Message.ToCharArray().Length);
+			}
+		}
 
-            string upc = data.GetStringExtra("SCAN_RESULT");
-            processUpc(upc);
-        }
+		#region Step 5. Ensure you get a response from barcode scanner
 
-        #endregion
+		protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+		{
+			if (requestCode == -1)
+			{
+				_upcCode.Text = "scan has been canceled";
+				return;
+			}
 
-        private void processUpc(String upc)
-        {
-            try
-            {
-                var api = new GoogleBooksApi(upc);
-                char[] title = api.GetTitle().ToCharArray();
-                upcCode.SetText(title,0,title.Length);
-            }
-            catch (Exception e)
-            {
-                Log.E("MainActivity.processUpc", string.Format("Exception thrown Processing UPC. Message : {0}", e.Message));
+			string upc = data.GetStringExtra("SCAN_RESULT");
+			ProcessUpc(upc);
+		}
 
-                upcCode.SetText(e.Message.ToCharArray(), 0, e.Message.ToCharArray().Length);
-            }
-        }
-    }
+		#endregion
+	}
 }
