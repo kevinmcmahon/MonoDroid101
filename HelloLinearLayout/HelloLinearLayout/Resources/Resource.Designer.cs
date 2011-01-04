@@ -15,7 +15,7 @@ namespace HelloLinearLayout
 	public partial class Resource
 	{
 		
-		public class attr
+		public partial class attr
 		{
 			
 			private attr()
@@ -23,7 +23,7 @@ namespace HelloLinearLayout
 			}
 		}
 		
-		public class drawable
+		public partial class drawable
 		{
 			
 			// aapt resource value: 0x7f020000
@@ -34,7 +34,7 @@ namespace HelloLinearLayout
 			}
 		}
 		
-		public class layout
+		public partial class layout
 		{
 			
 			// aapt resource value: 0x7f030000
@@ -45,14 +45,14 @@ namespace HelloLinearLayout
 			}
 		}
 		
-		public class @string
+		public partial class @string
 		{
-			
-			// aapt resource value: 0x7f040000
-			public const int hello = 2130968576;
 			
 			// aapt resource value: 0x7f040001
 			public const int app_name = 2130968577;
+			
+			// aapt resource value: 0x7f040000
+			public const int hello = 2130968576;
 			
 			private @string()
 			{

@@ -1,7 +1,6 @@
 ﻿using System;
 using Android.App;
 using Android.OS;
-using Android.Views;
 using Android.Widget;
 
 namespace HelloGridView
@@ -10,7 +9,8 @@ namespace HelloGridView
     public class HelloGridView : Activity
     {
         public HelloGridView()
-        {}
+        {
+        }
 
         public HelloGridView(IntPtr handle)
             : base(handle)
@@ -26,12 +26,11 @@ namespace HelloGridView
             gridView.Adapter = new ImageAdapter(this);
 
             gridView.ItemClick += gridView_ItemClick;
-       
         }
 
         private void gridView_ItemClick(object sender, ItemEventArgs e)
         {
-            Toast.MakeText(e.View.Context, "" + e.Position.ToString(), ToastLength.Short).Show(); 
+            Toast.MakeText(e.View.Context, "" + e.Position, ToastLength.Short).Show();
         }
     }
 }
