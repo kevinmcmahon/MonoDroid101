@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{3D9A357C-628D-4329-8C2F-4C1B359B1987}</ProjectGuid>
+    <ProjectGuid>{DDF935B3-BAF5-421D-B5DC-5216913E9F39}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -69,18 +69,7 @@
     <AndroidResource Include="Resources\drawable\flag.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-de-rDE\flag.png" />
-    <AndroidResource Include="Resources\drawable-en-rCA\flag.png" />
-    <AndroidResource Include="Resources\drawable-en-rUS\flag.png" />
-    <AndroidResource Include="Resources\drawable-fr-rCA\flag.png" />
-    <AndroidResource Include="Resources\drawable-fr-rFR\flag.png" />
     <AndroidResource Include="Resources\drawable-hdpi\icon.png" />
-    <AndroidResource Include="Resources\drawable-ja-rJP\flag.png" />
-    <AndroidResource Include="Resources\values-de\strings.xml" />
-    <AndroidResource Include="Resources\values-fr\strings.xml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-    <AndroidResource Include="Resources\values-ja\strings.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

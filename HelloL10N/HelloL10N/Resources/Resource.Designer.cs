@@ -15,7 +15,7 @@ namespace HelloL10N
 	public partial class Resource
 	{
 		
-		public class attr
+		public partial class attr
 		{
 			
 			private attr()
@@ -23,7 +23,7 @@ namespace HelloL10N
 			}
 		}
 		
-		public class drawable
+		public partial class drawable
 		{
 			
 			// aapt resource value: 0x7f020000
@@ -37,7 +37,18 @@ namespace HelloL10N
 			}
 		}
 		
-		public class layout
+		public partial class id
+		{
+			
+			// aapt resource value: 0x7f050000
+			public const int flag_button = 2131034112;
+			
+			private id()
+			{
+			}
+		}
+		
+		public partial class layout
 		{
 			
 			// aapt resource value: 0x7f030000
@@ -48,11 +59,17 @@ namespace HelloL10N
 			}
 		}
 		
-		public class @string
+		public partial class @string
 		{
 			
 			// aapt resource value: 0x7f040000
 			public const int app_name = 2130968576;
+			
+			// aapt resource value: 0x7f040004
+			public const int dialog_text = 2130968580;
+			
+			// aapt resource value: 0x7f040003
+			public const int dialog_title = 2130968579;
 			
 			// aapt resource value: 0x7f040001
 			public const int text_a = 2130968577;
@@ -60,24 +77,7 @@ namespace HelloL10N
 			// aapt resource value: 0x7f040002
 			public const int text_b = 2130968578;
 			
-			// aapt resource value: 0x7f040003
-			public const int dialog_title = 2130968579;
-			
-			// aapt resource value: 0x7f040004
-			public const int dialog_text = 2130968580;
-			
 			private @string()
-			{
-			}
-		}
-		
-		public class id
-		{
-			
-			// aapt resource value: 0x7f050000
-			public const int flag_button = 2131034112;
-			
-			private id()
 			{
 			}
 		}
