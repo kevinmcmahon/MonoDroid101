@@ -1,9 +1,9 @@
-.Net? MonoDroid Does
-====================
+.Net? Mono for Android Does
+===========================
 
 Example code and slides used in the MonoDroid presentations given by [Kevin McMahon](http://blog.kevfoo.com).
 
-The code has been adapted to work in MonoDroid Preview 10.
+The code has been adapted to work in MonoDroid Preview 14.
 
 The layout and the localization examples are from the Android tutorial examples and the bar code example is from the Chicago Android workshops.
 
