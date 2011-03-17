@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Android;
 using Android.App;
 using Android.OS;
@@ -22,13 +22,14 @@ namespace HelloSpinner
         {
             base.OnCreate(bundle);
 
-            SetContentView(Resource.layout.main);
+            SetContentView(Resource.Layout.main);
 
-            var spinner = (Spinner) FindViewById(Resource.id.spinner);
+            var spinner = (Spinner) FindViewById(Resource.Id.spinner);
 
-            ArrayAdapter adapter = ArrayAdapter.CreateFromResource(this, Resource.array.planets_array,
-                                                                   R.Layout.SimpleSpinnerItem);
-            adapter.SetDropDownViewResource(R.Layout.SimpleSpinnerDropdownItem);
+            ArrayAdapter adapter = ArrayAdapter.CreateFromResource(this, Resource.Array.planets_array,
+				Android.Resource.Layout.SimpleSpinnerItem);
+                                                                   
+            adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
 
             spinner.ItemSelected += spinner_ItemSelected;
 

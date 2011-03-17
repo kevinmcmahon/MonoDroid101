@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Android.App;
 using Android.OS;
 using Android.Widget;
@@ -26,23 +26,23 @@ namespace HelloL10N
             #region Step 1. Load your main layout
 
             // Set our view from the "main" layout resource
-            SetContentView(Resource.layout.main);
+            SetContentView(Resource.Layout.main);
 
             #endregion
 
             #region Step 2. Get the button that was declared in xml
 
-            var b = FindViewById<Button>(Resource.id.flag_button);
-            b.SetBackgroundDrawable(Resources.GetDrawable(Resource.drawable.flag));
+            var b = FindViewById<Button>(Resource.Id.flag_button);
+            b.SetBackgroundDrawable(Resources.GetDrawable(Resource.Drawable.flag));
 
             #endregion
 
             #region Step 3. Build Alert Dialog
 
             var builder = new AlertDialog.Builder(this);
-            builder.SetMessage(Resource.@string.dialog_text)
+            builder.SetMessage(Resource.String.dialog_text)
                 .SetCancelable(false)
-                .SetTitle(Resource.@string.dialog_title)
+                .SetTitle(GetString(Resource.String.dialog_title))
                 .SetPositiveButton("Done", (o, args) => ((Dialog) o).Dismiss());
 
             _alert = builder.Create();

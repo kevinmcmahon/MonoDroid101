@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Android;
 using Android.App;
 using Android.Content;
@@ -17,7 +17,7 @@ namespace GPSMap
 		protected override void OnCreate(Bundle bundle)
 		{
 			base.OnCreate(bundle);
-			SetContentView(Resource.layout.main);
+			SetContentView(Resource.Layout.main);
 			
 			StartLocationManager();
 		}
@@ -43,7 +43,7 @@ namespace GPSMap
 
 	private void OpenWebView(String url)
 	{
-		WebView webview = (WebView) FindViewById(Resource.id.web_view);
+		WebView webview = (WebView) FindViewById(Resource.Id.web_view);
 		webview.Settings.JavaScriptEnabled = true;
 		webview.LoadUrl(url);
 	}

@@ -20,9 +20,9 @@ namespace HelloGridView
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-            SetContentView(Resource.layout.main);
+            SetContentView(Resource.Layout.main);
 
-            var gridView = (GridView) FindViewById(Resource.id.gridview);
+            var gridView = (GridView) FindViewById(Resource.Id.gridview);
             gridView.Adapter = new ImageAdapter(this);
 
             gridView.ItemClick += gridView_ItemClick;

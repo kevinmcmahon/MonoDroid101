@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Android.App;
 using Android.OS;
 
@@ -20,7 +20,7 @@ namespace HelloLinearLayout
             base.OnCreate(bundle);
             
             // Set our view from the "main" layout resource
-            SetContentView(Resource.layout.main);
+            SetContentView(Resource.Layout.main);
         }
     }
 }

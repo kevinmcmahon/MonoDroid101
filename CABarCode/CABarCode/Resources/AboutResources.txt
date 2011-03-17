@@ -45,6 +45,6 @@ public class Resource {
     }
 }
 
-You would then use R.drawable.icon to reference the drawable/icon.png file, or Resource.layout.main 
+You would then use R.drawable.icon to reference the drawable/icon.png file, or Resource.Layout.main 
 to reference the layout/main.xml file, or Resource.strings.first_string to reference the first 
 string in the dictionary file values/strings.xml.

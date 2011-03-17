@@ -9,7 +9,7 @@ namespace CABarCode
 
         public static Intent Scan()
         {
-            Log.I("Barcode", "Scan button pressed.");
+            Log.Info("Barcode", "Scan button pressed.");
             var intent = new Intent("com.google.zxing.client.android.SCAN");
             intent.PutExtra("SCAN_MODE", "Product_MODE"); // Product_MODE or QR_CODE_MODE
             return intent;

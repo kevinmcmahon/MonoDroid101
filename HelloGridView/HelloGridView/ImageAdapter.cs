@@ -10,17 +10,17 @@ namespace HelloGridView
         private readonly Context _context;
 
         private readonly int[] mThumbIds = {
-                                               Resource.drawable.sample_2, Resource.drawable.sample_3,
-                                               Resource.drawable.sample_4, Resource.drawable.sample_5,
-                                               Resource.drawable.sample_6, Resource.drawable.sample_7,
-                                               Resource.drawable.sample_0, Resource.drawable.sample_1,
-                                               Resource.drawable.sample_2, Resource.drawable.sample_3,
-                                               Resource.drawable.sample_4, Resource.drawable.sample_5,
-                                               Resource.drawable.sample_6, Resource.drawable.sample_7,
-                                               Resource.drawable.sample_0, Resource.drawable.sample_1,
-                                               Resource.drawable.sample_2, Resource.drawable.sample_3,
-                                               Resource.drawable.sample_4, Resource.drawable.sample_5,
-                                               Resource.drawable.sample_6, Resource.drawable.sample_7
+                                               Resource.Drawable.sample_2, Resource.Drawable.sample_3,
+                                               Resource.Drawable.sample_4, Resource.Drawable.sample_5,
+                                               Resource.Drawable.sample_6, Resource.Drawable.sample_7,
+                                               Resource.Drawable.sample_0, Resource.Drawable.sample_1,
+                                               Resource.Drawable.sample_2, Resource.Drawable.sample_3,
+                                               Resource.Drawable.sample_4, Resource.Drawable.sample_5,
+                                               Resource.Drawable.sample_6, Resource.Drawable.sample_7,
+                                               Resource.Drawable.sample_0, Resource.Drawable.sample_1,
+                                               Resource.Drawable.sample_2, Resource.Drawable.sample_3,
+                                               Resource.Drawable.sample_4, Resource.Drawable.sample_5,
+                                               Resource.Drawable.sample_6, Resource.Drawable.sample_7
                                            };
 
         public ImageAdapter(Context c)

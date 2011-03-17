@@ -1,11 +1,24 @@
-*resharper.user
-# Visual Studio
-[Dd]ebug/
-[Rr]elease/
-*.sln.cache
+bin
+obj
+*.user
 *.suo
-*.csproj.user
-
-# Resharper
-*[Rr]e[Ss]harper.user
-_ReSharper.*/
+_ReSharper.*
+*.resharper
+*.cache
+~$*
+*.usertasks
+*.userprefs
+.DS_Store?
+ehthumbs.db
+Thumbs.db
+*.sqlite
+*.iso
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+*.pidb

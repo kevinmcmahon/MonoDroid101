@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -25,17 +25,17 @@ namespace CABarCode
 		{
 			base.OnCreate(bundle);
 
-			Log.I("MainActivity.OnCreate", "Started CABarCode!!!");
+			Log.Info("MainActivity.OnCreate", "Started CABarCode!!!");
 
 			#region Step 1. Setup UI elements
 
 			// Set our view from the "main" layout resource
-			SetContentView(Resource.layout.main);
+			SetContentView(Resource.Layout.main);
 
 			// Get our button from the layout resource,
 			// and attach an event to it
-			var button = FindViewById<Button>(Resource.id.scan_button);
-			_upcCode = FindViewById<EditText>(Resource.id.upc_code);
+			var button = FindViewById<Button>(Resource.Id.scan_button);
+			_upcCode = FindViewById<EditText>(Resource.Id.upc_code);
 
 			#endregion
 
@@ -56,7 +56,7 @@ namespace CABarCode
 			}
 			catch (Exception e)
 			{
-				Log.E("MainActivity.processUpc",
+				Log.Error("MainActivity.processUpc",
 					  string.Format("Exception thrown Processing UPC. Message : {0}", e.Message));
 
 				_upcCode.SetText(e.Message.ToCharArray(), 0, e.Message.ToCharArray().Length);
