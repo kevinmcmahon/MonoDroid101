@@ -23,7 +23,8 @@ namespace HelloListView
 
             #region Step 1. Create the ListAdapter
 
-            ListAdapter = new ArrayAdapter<string>(this, Resource.Layout.list_item, _countries);
+            ListAdapter
+= new ArrayAdapter<string>(this, Resource.Layout.list_item, _countries);
 
             #endregion
 
