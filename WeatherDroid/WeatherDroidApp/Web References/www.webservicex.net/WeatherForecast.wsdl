@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s0="http://www.webservicex.net" xmlns:tns="http://www.webservicex.net" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://www.webservicex.net" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get one week weather forecast for valid zip code or Place name in USA</wsdl:documentation>
+  <types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://www.webservicex.net" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="GetWeatherByZipCode">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="ZipCode" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetWeatherByZipCodeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="1" name="GetWeatherByZipCodeResult" type="tns:WeatherForecasts" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="WeatherForecasts">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="Latitude" type="xs:float" />
+          <xs:element minOccurs="1" maxOccurs="1" name="Longitude" type="xs:float" />
+          <xs:element minOccurs="1" maxOccurs="1" name="AllocationFactor" type="xs:float" />
+          <xs:element minOccurs="0" maxOccurs="1" name="FipsCode" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="1" name="PlaceName" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="1" name="StateCode" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="1" name="Status" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="1" name="Details" type="tns:ArrayOfWeatherData" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfWeatherData">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="WeatherData" type="tns:WeatherData" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="WeatherData">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="Day" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="1" name="WeatherImage" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="1" name="MaxTemperatureF" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="1" name="MinTemperatureF" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="1" name="MaxTemperatureC" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="1" name="MinTemperatureC" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GetWeatherByPlaceName">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="PlaceName" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetWeatherByPlaceNameResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="1" name="GetWeatherByPlaceNameResult" type="tns:WeatherForecasts" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="WeatherForecasts" type="tns:WeatherForecasts" />
+    </xs:schema>
+  </types>
+  <message name="GetWeatherByZipCodeSoapIn">
+    <part name="parameters" element="tns:GetWeatherByZipCode" />
+  </message>
+  <message name="GetWeatherByZipCodeSoapOut">
+    <part name="parameters" element="tns:GetWeatherByZipCodeResponse" />
+  </message>
+  <message name="GetWeatherByPlaceNameSoapIn">
+    <part name="parameters" element="tns:GetWeatherByPlaceName" />
+  </message>
+  <message name="GetWeatherByPlaceNameSoapOut">
+    <part name="parameters" element="tns:GetWeatherByPlaceNameResponse" />
+  </message>
+  <message name="GetWeatherByZipCodeHttpGetIn">
+    <part name="ZipCode" type="s:string" />
+  </message>
+  <message name="GetWeatherByZipCodeHttpGetOut">
+    <part name="Body" element="tns:WeatherForecasts" />
+  </message>
+  <message name="GetWeatherByPlaceNameHttpGetIn">
+    <part name="PlaceName" type="s:string" />
+  </message>
+  <message name="GetWeatherByPlaceNameHttpGetOut">
+    <part name="Body" element="tns:WeatherForecasts" />
+  </message>
+  <message name="GetWeatherByZipCodeHttpPostIn">
+    <part name="ZipCode" type="s:string" />
+  </message>
+  <message name="GetWeatherByZipCodeHttpPostOut">
+    <part name="Body" element="tns:WeatherForecasts" />
+  </message>
+  <message name="GetWeatherByPlaceNameHttpPostIn">
+    <part name="PlaceName" type="s:string" />
+  </message>
+  <message name="GetWeatherByPlaceNameHttpPostOut">
+    <part name="Body" element="tns:WeatherForecasts" />
+  </message>
+  <portType name="WeatherForecastSoap">
+    <operation name="GetWeatherByZipCode">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get one week weather forecast for a valid Zip Code(USA)</wsdl:documentation>
+      <input message="tns:GetWeatherByZipCodeSoapIn" />
+      <output message="tns:GetWeatherByZipCodeSoapOut" />
+    </operation>
+    <operation name="GetWeatherByPlaceName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get one week  weather forecast for a place name(USA)</wsdl:documentation>
+      <input message="tns:GetWeatherByPlaceNameSoapIn" />
+      <output message="tns:GetWeatherByPlaceNameSoapOut" />
+    </operation>
+  </portType>
+  <portType name="WeatherForecastHttpGet">
+    <operation name="GetWeatherByZipCode">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get one week weather forecast for a valid Zip Code(USA)</wsdl:documentation>
+      <input message="tns:GetWeatherByZipCodeHttpGetIn" />
+      <output message="tns:GetWeatherByZipCodeHttpGetOut" />
+    </operation>
+    <operation name="GetWeatherByPlaceName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get one week  weather forecast for a place name(USA)</wsdl:documentation>
+      <input message="tns:GetWeatherByPlaceNameHttpGetIn" />
+      <output message="tns:GetWeatherByPlaceNameHttpGetOut" />
+    </operation>
+  </portType>
+  <portType name="WeatherForecastHttpPost">
+    <operation name="GetWeatherByZipCode">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get one week weather forecast for a valid Zip Code(USA)</wsdl:documentation>
+      <input message="tns:GetWeatherByZipCodeHttpPostIn" />
+      <output message="tns:GetWeatherByZipCodeHttpPostOut" />
+    </operation>
+    <operation name="GetWeatherByPlaceName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get one week  weather forecast for a place name(USA)</wsdl:documentation>
+      <input message="tns:GetWeatherByPlaceNameHttpPostIn" />
+      <output message="tns:GetWeatherByPlaceNameHttpPostOut" />
+    </operation>
+  </portType>
+  <binding name="WeatherForecastSoap" type="tns:WeatherForecastSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="GetWeatherByZipCode">
+      <soap:operation soapAction="http://www.webservicex.net/GetWeatherByZipCode" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetWeatherByPlaceName">
+      <soap:operation soapAction="http://www.webservicex.net/GetWeatherByPlaceName" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <binding name="WeatherForecastSoap12" type="tns:WeatherForecastSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="GetWeatherByZipCode">
+      <soap12:operation soapAction="http://www.webservicex.net/GetWeatherByZipCode" style="document" />
+      <input>
+        <soap12:body use="literal" />
+      </input>
+      <output>
+        <soap12:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetWeatherByPlaceName">
+      <soap12:operation soapAction="http://www.webservicex.net/GetWeatherByPlaceName" style="document" />
+      <input>
+        <soap12:body use="literal" />
+      </input>
+      <output>
+        <soap12:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <binding name="WeatherForecastHttpGet" type="tns:WeatherForecastHttpGet">
+    <http:binding verb="GET" />
+    <operation name="GetWeatherByZipCode">
+      <http:operation location="/GetWeatherByZipCode" />
+      <input>
+        <http:urlEncoded />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="GetWeatherByPlaceName">
+      <http:operation location="/GetWeatherByPlaceName" />
+      <input>
+        <http:urlEncoded />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+  </binding>
+  <binding name="WeatherForecastHttpPost" type="tns:WeatherForecastHttpPost">
+    <http:binding verb="POST" />
+    <operation name="GetWeatherByZipCode">
+      <http:operation location="/GetWeatherByZipCode" />
+      <input>
+        <mime:content part="" type="application/x-www-form-urlencoded" />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="GetWeatherByPlaceName">
+      <http:operation location="/GetWeatherByPlaceName" />
+      <input>
+        <mime:content part="" type="application/x-www-form-urlencoded" />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+  </binding>
+  <service name="WeatherForecast">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get one week weather forecast for valid zip code or Place name in USA</wsdl:documentation>
+    <port name="WeatherForecastSoap" binding="tns:WeatherForecastSoap">
+      <soap:address location="http://www.webservicex.net/WeatherForecast.asmx" />
+    </port>
+    <port name="WeatherForecastSoap12" binding="tns:WeatherForecastSoap12">
+      <soap12:address location="http://www.webservicex.net/WeatherForecast.asmx" />
+    </port>
+    <port name="WeatherForecastHttpGet" binding="tns:WeatherForecastHttpGet">
+      <http:address location="http://www.webservicex.net/WeatherForecast.asmx" />
+    </port>
+    <port name="WeatherForecastHttpPost" binding="tns:WeatherForecastHttpPost">
+      <http:address location="http://www.webservicex.net/WeatherForecast.asmx" />
+    </port>
+  </service>
+</definitions>
