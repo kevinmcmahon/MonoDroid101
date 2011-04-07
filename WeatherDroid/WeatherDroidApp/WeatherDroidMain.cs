@@ -52,6 +52,7 @@ namespace WeatherDroidApp
 			
             try
             {
+				// http://www.webservicex.net/WeatherForecast.asmx?WSDL
 				var ws = new www.webservicex.net.WeatherForecast("http://www.webservicex.net/WeatherForecast.asmx");
 				forecast = ws.GetWeatherByZipCode("60614");
             }
