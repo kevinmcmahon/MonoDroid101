@@ -48,6 +48,7 @@ namespace WeatherDroidApp
 
         private WeatherForecasts CallWebService()
         {
+			
 			WeatherForecasts forecast = null;
 			
             try
